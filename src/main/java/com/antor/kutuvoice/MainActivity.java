@@ -39,8 +39,8 @@ import java.util.ArrayList;
  *
  * The app itself has NO brain and NO network. It listens (Android's own
  * SpeechRecognizer), shows the transcript, and hands the words to KUTU via
- * Android's share sheet ("Send to KUTU"). Robot-flavoured spoken feedback
- * comes from the device TextToSpeech engine with a low pitch.
+ * Android's share sheet ("Send to KUTU"). Spoken feedback
+ * comes from the device TextToSpeech engine at its normal voice.
  *
  * Wake mode: while the switch is ON and the app is open, recognition runs in
  * a loop; hearing "kutu" / "কুটু" beeps + vibrates and the NEXT utterance is
@@ -204,8 +204,8 @@ public class MainActivity extends Activity implements RecognitionListener {
         copy.setOnClickListener(v -> copyTranscript());
         row.addView(copy, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         Button test = new Button(this);
-        test.setText("🔊 Test robot voice");
-        test.setOnClickListener(v -> speak("আমি কুটু রোবট। বলো বস, কি করতে পারি?"));
+        test.setText("🔊 Test voice");
+        test.setOnClickListener(v -> speak("আমি কুটু। বলো বস, কি করতে পারি?"));
         row.addView(test, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         root.addView(row, fullWidth());
 
@@ -254,14 +254,14 @@ public class MainActivity extends Activity implements RecognitionListener {
         return transcriptView.getText().toString().trim();
     }
 
-    // ------------------------------------------------------------ TTS robot
+    // ------------------------------------------------------------ TTS
 
     private void initTts() {
         tts = new TextToSpeech(this, status -> {
             if (status == TextToSpeech.SUCCESS) {
-                // Robot flavour: low pitch, near-normal rate.
-                tts.setPitch(0.6f);
-                tts.setSpeechRate(0.95f);
+                // Normal voice: default pitch and rate.
+                tts.setPitch(1.0f);
+                tts.setSpeechRate(1.0f);
                 ttsReady = true;
             } else {
                 ttsReady = false; // toast-only failure handling, never crash

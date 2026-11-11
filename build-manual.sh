@@ -20,8 +20,8 @@ JAVAC="$JAVA_HOME/bin/javac"
 APP_ID="com.antor.kutuvoice"
 MIN_SDK=26
 TARGET_SDK=34
-VERSION_CODE=1
-VERSION_NAME="1.0"
+VERSION_CODE=2
+VERSION_NAME="1.1"
 KS="${KUTU_KS:-/home/hatch/workspace/phone-agent/hello/kutu-release.keystore}"
 BUILD="$PROJ/build/manual"
 rm -rf "$BUILD"

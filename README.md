@@ -1,6 +1,6 @@
 # KUTU Voice
 
-Package: `com.antor.kutuvoice` · version 1.0 (versionCode 1) · minSdk 26 · targetSdk 34 · pure Java, no external libraries, no network, no server, no accessibility service.
+Package: `com.antor.kutuvoice` · version 1.1 (versionCode 2) · minSdk 26 · targetSdk 34 · pure Java, no external libraries, no network, no server, no accessibility service.
 
 ## What it is
 
@@ -9,7 +9,7 @@ Muse chat. Antor asked for "Siri, but the brain is you". The honest split:
 
 - **This app is the ear and the mouth.** It listens with Android's own speech
   recognition, shows the words on screen, and speaks short confirmations back
-  in a robot-flavoured voice (device TextToSpeech at pitch 0.6, rate 0.95).
+  in a normal voice (device TextToSpeech at its default pitch and rate).
 - **The brain is KUTU in the Muse chat.** The app has no brain of its own and
   no direct API to Muse. Antor's spoken words reach KUTU through Android's
   share sheet: **Send to KUTU** → pick Muse → the text lands in the chat,
@@ -27,11 +27,11 @@ Muse chat. Antor asked for "Siri, but the brain is you". The honest split:
    misheard words before sending). KUTU Voice confirms out loud: "শুনেছি বস".
 4. Tap **Send to KUTU** and choose Muse in the share sheet. (Or **Copy** and
    paste it anywhere.)
-5. KUTU answers in the chat — as text, or as a robot-type voice note.
+5. KUTU answers in the chat — as text, or as a voice note.
 
 Language toggle: **বাংলা (bn-BD)** by default, **English (en-US)** optional.
-A **🔊 Test robot voice** button speaks a sample line so Antor can hear the
-robot voice any time.
+A **🔊 Test voice** button speaks a sample line so Antor can hear the
+voice any time.
 
 ## Honest limits (v1)
 
@@ -46,7 +46,7 @@ robot voice any time.
   for "kutu"/"কুটু". Background noise can cause misses or false triggers.
 - Sending needs one share-sheet tap. There is deliberately **no** invented
   "direct API to Muse" — the share intent is the real, working route.
-- TTS robot voice depends on the phone's TextToSpeech engine; if none is
+- TTS voice depends on the phone's TextToSpeech engine; if none is
   available the app falls back to toasts and never crashes.
 
 ## Building
